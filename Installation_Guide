@@ -1,0 +1,25 @@
+# Step by step process 
+
+#First install pypthon-pip and speedtest client
+sudo apt-get install python-pip
+sudo apt-get install speedtest-cli
+
+#Get the Zip file from Git and unzip it
+wget https://github.com/sivel/speedtest-cli/archive/master.zip
+unzip master.zip
+
+#Make sure the scrip file is executable
+cd <Directoy>
+chmod +x speedtest_cli.py
+
+#Optional, if you do not want to give the path everytime
+sudo mv speedtest_cli.py /usr/bin/
+
+#Test the speed
+speedtest_cli.py 
+
+#Alias to make life simpler
+alias speedtest='speedtest_cli.py'
+
+
+
