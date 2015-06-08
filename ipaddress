@@ -1,7 +1,21 @@
 #!/bin/bash
 
-echo "The public Ip address is as follows:"
+echo "Please select from the following"
+echo "|-->1 to get your 'local' Ip address"
+echo "|-->2 to get your public Ip address"
+read number
 
-dig +short myip.opendns.com @resolver1.opendns.com
+local=`ifconfig eth1 | grep inet\ addr | awk '{print $3}'| cut -d: -f2`
+public=`dig +short myip.opendns.com @resolver1.opendns.com`
+case $number in 
+	1 ) echo "The Local IP address is : "
+	    echo "$local"
+	;;
+	2 ) echo "The Public IP address is:"
+	    echo "$public"
+	;;
+	* ) echo "Please select either 1 or 2"
+esac
+
 
 
