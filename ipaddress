@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo "Please select from the following"
-echo "|-->1 to get your 'local' Ip address"
-echo "|-->2 to get your public Ip address"
+echo "|--->1 to get your 'local' Ip address"
+echo "|--->2 to get your public Ip address"
 read number
 
 local=`ifconfig eth1 | grep inet\ addr | awk '{print $3}'| cut -d: -f2`
