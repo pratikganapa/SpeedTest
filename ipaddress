@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "The public Ip address is as follows::"
+echo "The public Ip address is as follows:"
 
 dig +short myip.opendns.com @resolver1.opendns.com
 
