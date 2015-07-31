@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+echo "Plese select from the following"
+echo "PLease press 1 for local ip"
+echo "PLease press 2  for public ip"
+echo "PLease press 3 for all interfaces"
+read number
+
+local=`ifconfig eth1 | grep inet\ addr | awk '{print $2}' | cut -d: -f2`
+public=`dig +short myip.opendns.com @resolver1.opendns.com`
+eth=`ifconfig -a | cut -d " " -f1 |uniq -u`
+
+case $number in
+	1 ) echo "Your local ip is"
+	    echo "$local" 
+	;;
+	2 ) echo "Your public ip is"
+	    echo "$public"
+	;;
+	3 ) echo "total interfaces are:"
+	echo "$eth"
+	;;
+	* ) echo "Please select from the above options:"
+esac
